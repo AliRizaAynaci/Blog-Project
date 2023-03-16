@@ -1,0 +1,56 @@
+<%- include('includes/head.ejs') %>
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/pawel-czerwinski-PvgqqicSLvA-unsplash.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>Clean Blog</h1>
+              <span class="subheading">A Blog Theme by Start Bootstrap</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="container">
+      <% posts.forEach( (post) => { %>
+        <div class="row">
+          <% if(post.image == null) { %>
+            <div class="col-lg-4 col-md-2 mx-auto">
+              <img class="img-thumbnail" src="" alt="">
+            </div>
+          <% } else { %>
+            <div class="col-lg-4 col-md-2 mx-auto">
+              <img class="img-thumbnail" src="<%= post.image %>" alt="blog-image">
+            </div>
+            <% } %>
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-preview">
+              <a href="/post/<%= post._id %>">
+                <h2 class="post-title">
+                  <%= post.title %>
+                </h2>
+              </a>
+              <p class="post-meta">Posted by
+                <a href="#"><%= post.username %></a>
+                on <%= post.createdAt.toDateString() %>>
+              </p>
+            </div>
+            <hr>
+          </div>
+        </div>
+      <% }); %>
+      <!-- Pager -->
+      <div class="clearfix">
+        <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+      </div>
+    </div>
+
+    <hr>
+
+<%- include('includes/end.ejs') %>
+
+
