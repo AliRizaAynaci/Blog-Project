@@ -19,6 +19,7 @@ const storeUSerController = require('./controllers/storeUser');
 const loginController = require('./controllers/login');
 const loginUserController = require('./controllers/loginUser');
 const logOutController = require('./controllers/logout');
+const profileController = require('./controllers/profile');
 
 const app = express();
 
@@ -55,16 +56,16 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use('/posts/store', storePost);
 
 app.get("/", homePageController);
 app.get("/post/:id", getPostController);
 app.get("/posts/new", auth, createPostController);
-app.post("/posts/store", storePostController);
+app.post("/posts/store", storePost, storePostController);
 app.get('/auth/login', redirectIfAuthenticated, loginController);
 app.post('/users/login', redirectIfAuthenticated, loginUserController);
 app.get('/auth/register', redirectIfAuthenticated, createUserController);
 app.post('/users/register', redirectIfAuthenticated, storeUSerController);
+app.get('/auth/profile', auth, profileController)
 app.get('/auth/logout', logOutController, (req,res)=>{
     res.locals.auth = null;
 });
