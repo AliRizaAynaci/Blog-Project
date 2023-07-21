@@ -9,7 +9,7 @@ const auth = require('./middleware/auth');
 const connectFlash = require("connect-flash");
 const redirectIfAuthenticated = require('./middleware/redirectIfAuthenticated');
 
-// Add MVC
+// Add Controller
 const createPostController = require('./controllers/createpost');
 const homePageController = require('./controllers/homePage');
 const storePostController = require('./controllers/storePost');

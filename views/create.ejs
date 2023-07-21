@@ -1,6 +1,37 @@
 <%- include('includes/head.ejs') %>
     <!-- Page Header -->
     <header class="masthead">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container">
+              <a class="navbar-brand" href="/">Start Bootstrap</a>
+              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                  </li>
+                  <% if(!auth) { %>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/auth/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/auth/register">Register</a>
+                    </li>
+                  <% } else { %>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/auth/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/auth/logout">Logout</a>
+                    </li>
+                  <% } %>
+                </ul>
+              </div>
+            </div>
+          </nav>
         <div class="overlay"></div>
         <div class="container">
         <div class="row">
@@ -17,18 +48,6 @@
         <div class="row">
         <div class="col-md-8 offset-md-2">
             <form action="/posts/store" method="POST" enctype="multipart/form-data">
-                <div class="control-group">
-                    <div class="category-class">
-                      <label for="category">Select Category: </label>
-                      <select id="category" name="category" class="form-control">
-                        <option value="0"></option>
-                        <option value="category1">Category 1</option>
-                        <option value="category2">Category 2</option>
-                        <option value="category3">Category 3</option>
-                        <option value="category4">Category 4</option>
-                      </select>
-                    </div>
-                </div>    
             <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
                 <label>Username</label>
