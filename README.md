@@ -14,7 +14,7 @@ On the main page, it shows all the posts sent and by whom and on what date these
 - MongoDB
 - Bootstrap
 
-# Image from project
+# Image From Project
 ### Home Page
 ![Screenshot 2023-07-21 153424](https://github.com/AliRizaAynaci/blog-project/assets/115364922/c314c9e8-33fe-4772-acdd-7a62bf243c99)
 ![image](https://github.com/AliRizaAynaci/blog-project/assets/115364922/339f17c6-bd84-4600-b2b4-6b929d91ed99)
